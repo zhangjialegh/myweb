@@ -4,9 +4,6 @@ var path = require('path');
 // var logger = require('morgan');
 // var cookieParser = require('cookie-parser');
 // var bodyParser = require('body-parser');
-var http = require('http');
-var hostname='0.0.0.0';
-var port = 8080;
 // var index = require('./routes/index');
 // var users = require('./routes/users');
 
