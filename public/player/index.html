@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var Ratio = 1 / window.devicePixelRatio;
+        document.write('<meta name="viewport" content="width=device-width,initial-scale=' + Ratio + ',minimum-scale=' + Ratio + ',maximum-scale=' + Ratio + ',user-scalable=no" />');
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/music.css">
+    <script src="lyrics/lyrics.js"></script>
+    <script src="js/doMove.js"></script>
+    <title>音乐播放器</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!--最大的,包裹所有 -->
+    <div class="container">
+        <div id="wrapper">
+            <!-- bg  背景图 -->
+            <div class="bg"></div>
+            <div class="bg-black"></div>
+            <!-- header  顶部歌曲名,歌手名 -->
+            <div class="header">
+                <div class="song" id="songName">Burn</div>
+                <div class="artist" id="artist">Angelika Vee</div>
+            </div>
+
+
+            <!-- center  中间部分 -->
+            <div class="center">
+                <div class="disk">
+                    <img class="disk-album-bg" src="css/img/1.jpg" alt="">
+                </div>
+            </div>
+            <!-- 歌词部分 -->
+            <div class="lyric">
+                <div id="line"></div>
+                <ul>
+
+                </ul>
+            </div>
+            <!-- footer 底部 -->
+            <div class="footer">
+                <!--process 进度条部分 -->
+                <div id="process">
+                    <!--currentTime 当前时间 -->
+                    <span id="currentTime">00:00</span>
+
+                    <!--process-bar 进度条 -->
+                    <div id="process-bar">
+                        <div id="process-all"></div>
+                        <div id="process-ready"></div>
+                        <div id="process-cur">
+                            <span id="cur-btn"></span>
+                        </div>
+                    </div>
+
+                    <!--total-time 总时间 -->
+                    <span id="total-time">00:00</span>
+                </div>
+                <div id="control">
+                    <!--pre 上一曲按钮  -->
+                    <span class="pre"></span>
+
+                    <!--play 播放按钮  -->
+                    <span class="play"></span>
+
+                    <!--pause 暂停按钮  -->
+                    <span class="pause" style="display:none"></span>
+
+                    <!--next 下一曲按钮  -->
+                    <span class="next"></span>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="right-wrapper">
+            <div class="music-list"></div>
+            <div id="play-list">
+                <div>
+                    <div class="list-title">播放列表(<span id="playListCount">0</span>)</div>
+                </div>
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div style="display:none">
+        <audio preload id="audio1">您的浏览器不支持 audio 标签。</audio>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+
+

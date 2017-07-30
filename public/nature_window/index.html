@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="../script/jquery-3.2.1.min.js"></script>
+		<script src="js/imgList.js"></script>
+		<script src="js/utils.js"></script>
+		<script>
+$(document).ready(function() {
+	var ind=0;
+	PicListBox(ind++,get_img_137000(), -23, 191, 267, 194, 1000, 3000, 3);
+	PicListBox(ind++,get_img_130000(), -17, 418, 196, 150, 1000, 5000, 3);
+
+	PicListBox(ind++,get_img_153000(), 282, 160, 205, 133, 1000, 5433, 1);
+	PicListBox(ind++,get_img_149600(), 282, 321, 183, 125, 1000, 8472, 1);
+	PicListBox(ind++,get_img_162000(), 211, 482, 245, 150, 1000, 3783, 1);
+
+	setVideo(ind++, 519, 74, 430, 278, 1000, 8700, 0);
+	PicListBox(ind++,get_img_174576(), 497, 399, 201, 115, 1000, 12303, 1);
+	PicListBox(ind++,get_img_137700(), 722, 382, 252, 181, 1000, 10838, 1);
+
+	PicListBox(ind++,get_img_200000(), 976, 158, 331, 164, 1000, 4990, 1);
+	PicListBox(ind++,get_img_139440(), 1015, 354, 350, 248, 1000, 6008, 1);
+
+	PicListBox(ind++,get_img_155200(), 1338, 138, 290, 184, 1000, 18901, 1);
+	PicListBox(ind++,get_img_073384(), 1390, 403, 201, 271, 1000, 3735, 1);
+
+	PicListBox(ind++,get_img_186755(), 1662, 91, 297, 159, 1000, 7993, 3);
+	PicListBox(ind++,get_img_111000(), 1622, 348, 229, 205, 1000, 29001, 1);
+
+	var a5 =document.getElementById('a5');
+	var video = document.createElement("video");
+    video.id = "videoPV";
+    video.src="liangliang.webm";
+    video.autoplay = "autoplay";
+	video.loop = "loop";
+	video.width=a5.offsetWidth;
+	video.height=a5.offsetHeight;
+    video.innerHTML="Your browser does not support the video tag";
+    video.style.position = "absolute";
+	video.style.left = 0;
+	video.style.top=0;
+	video.onclick=function(){
+		if(video.paused){
+           video.play();
+		}else{
+			video.pause();
+		}
+	}
+	a5.appendChild(video);
+});
+</script>
+		<style>
+.img {
+	-webkit-transform: rotateX(-33.5deg) rotateY(45deg);
+	transform: rotateX(-33.5deg) rotateY(45deg);
+}
+#videoPV{
+	object-fit: fill;
+	cursor: pointer;
+}
+.bk{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+    background: url(img/bg.jpg);
+}
+.bk-blur{
+	background-repeat: no-repeat;
+	filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(10px);
+			z-index: -1;
+}
+.butterfly{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+
+}
+		.btf-1{
+			top: 60px;
+			left: 1034px;
+			transform: rotate(60deg);
+		}
+		.btf-2{
+			top: 22px;
+			left: 760px;
+			 transform: rotate(50deg); 
+		}
+		.gralower{
+			width: 100%;
+			height: 70%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+		#a60{
+			cursor: pointer;
+		}
+		</style>
+	</head>
+	<body style="overflow-x:hidden;overflow-y:hidden;">
+		<div class="bk bk-blur">
+		</div>
+		<img src="./img/butterfly/001.png" class="butterfly btf-1" alt="butterfly" />
+		<img src="./img/butterfly/002.png" class="butterfly btf-2" alt="butterfly" />
+		<img src="./img/butterfly/003.png" class="gralower" alt="butterfly" />
+	</body>
+</html>

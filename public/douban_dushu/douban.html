@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="./css/douban.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header">
+            <span class="dbreading"></span>
+            <div class="search-wrap">
+                <input type="text" class="text">
+                <div class="btn"></div>
+            </div>
+        </div>
+        <div class="loading-wrap">
+            <div class="loading-body">加载中...</div>
+        </div>
+        <div class="content">
+            <p class="source-info">
+                <span class="source-detail">
+   
+                </span>
+            </p>
+            <ul class="book-lists">
+            </ul>
+        </div>
+        <div class="footer">
+            <div class="nav">
+                <span class="prev" data-id="prev" href="javascript:;">
+                    < 前页</span>
+                <ul class="nav-lists">
+                </ul>
+                <span class="next" data-id="next" href="javascript:;">后页 ></span>
+
+            </div>
+        </div>
+    </div>
+    <script src="./script/fetch.js" charset="utf-8"></script>
+    <script>
+        const btn = document.querySelector('.btn');
+        const text = document.querySelector('.text');
+        const bookLists = document.querySelector('.book-lists');
+        const navLists = document.querySelector('.nav-lists');
+        const loadingWrap = document.querySelector('.loading-wrap');
+        const nav = document.querySelector('.nav');
+         
+
+             renderBook("JS");
+            btn.onclick=renderBook;
+            text.onkeydown=renderBook;
+         function renderBook(val) {
+             text.focus();
+             if(typeof val==='object'){
+                 if(val.keyCode){
+                     if(val.keyCode!=13) return;
+                 }
+                   val='';
+             }
+             
+            //  if(val.target.keyCode!==13) return;
+            let value = text.value.trim() || val;
+            if (value === '') {
+                  return;
+            }
+
+            let result = fetch({
+                    type: 'jsonp',
+                    url: 'https://api.douban.com/v2/book/search',
+                    data: {
+                        "q": `${value}`,
+                        "count":100,
+                    },
+                    timeout: 3000
+                }).init()
+                .then((data) => {
+                    console.log(data);
+                    start(data);
+                });
+               text.value=''; 
+            loadingWrap.style.display = 'flex';
+        };
+
+        //生成html结构
+        function start(data) {
+            const books = data.books;
+            const limitLen = 10;
+            const len = books.length;
+            let pageNum = 1;
+            let str = ``,
+                prev = 1;
+
+            for (let i = 0; i < Math.ceil(len / limitLen); i++) {
+                str += `<li class="pages-num ${i===0?'active':''}">${i+1}</li>`;
+            }
+            navLists.innerHTML = str;
+
+            createHtml(books, len, limitLen);
+
+            nav.addEventListener('click', turnPage);
+            //加载页消失，显示加载内容
+            loadingWrap.style.display = '';
+            bookLists.parentNode.style.display = nav.parentNode.style.display = 'block';
+
+            function turnPage(e) {
+                const target = e.target;
+                if (!target.classList.contains('nav')) {
+                    navLists.children[pageNum - 1].classList.remove('active');
+                    if (target.dataset.id === 'prev') {
+                        pageNum = pageNum <= 1 ? 1 : --pageNum;
+                        navLists.children[pageNum - 1].classList.add('active');
+                    } else if (target.dataset.id === 'next') {
+                        pageNum = pageNum >= Math.ceil(len / limitLen) ? Math.ceil(len / limitLen) : ++pageNum;
+                        navLists.children[pageNum - 1].classList.add('active');
+                    } else {
+                        pageNum = target.innerHTML;
+                        target.classList.add('active');
+                    }
+                    createHtml(books, len, limitLen, pageNum);
+                }
+            }
+        };
+
+
+
+        function createHtml(books, len, limitLen, pageNum = 1) {
+            //搜索结果1-15   共513
+            const sourceDetail = document.querySelector('.source-detail');
+            let str = ``,
+                realLen;
+            if (limitLen * pageNum <= len) {
+                realLen = limitLen * pageNum;
+            } else {
+                realLen = len;
+            }
+            sourceDetail.innerHTML = `搜索结果${(pageNum - 1) * limitLen+1}-${realLen}   共${len}`;
+
+            for (let i = (pageNum - 1) * limitLen; i < realLen; i++) {
+                str += `<li class="book">
+                                    <img src="${books[i].image}" class="img">
+                                    <div class="book-detail">
+                                        <h3 class="title">${books[i].title}</h3>
+                                        <div class="book-info">
+                                        <span class="author">`;
+                if (books[i].author && books[i].author.length != 0) {
+                    for (let j = 0; j < books[i].author.length; j++) {
+                        str += `${books[i].author[j]} `;
+                    };
+                }
+
+                if (books[i].translator && books[i].translator.length != 0) {
+                    str += `/</span><span class="translator">`;
+                    for (let k = 0; k < books[i].translator.length; k++) {
+                        str += `${books[i].translator[k]} `;
+                    };
+                }
+                str += `</span><span class="publisher"></span>
+                                <span class="pubdate">${books[i].pubdate.length != 0?'/'+books[i].pubdate:''}</span>
+                                <span class="price">${books[i].price.length != 0?'/'+ books[i].price:''}</span>
+                            </div>
+                            <p class="summary">${books[i].summary===''?'(未找到相关介绍)':books[i].summary}</p>
+                        </div>
+                    </li>`;
+            }
+            bookLists.innerHTML = str;
+        };
+    </script>
+</body>
+
+</html>
