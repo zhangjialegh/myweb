@@ -1,5 +1,5 @@
 function swiCard() {
-    var Tabs = function () {
+  var Tabs = function () {
 	var toggler = $('.views-toggle');
 	var tabs = $('li.tabs__item');
 	var toggled = false;

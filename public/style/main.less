@@ -44,6 +44,22 @@
         }
 
         .swiper-wrapper {
+            .main{
+                .wisdom{
+                    position: absolute;
+                    top: 20%;
+                    left: 15%;
+                    font-size: 6vw;
+                    font-family: Merriweather, Georgia, serif;
+                    color: #fff;
+                    span{
+                        display: block;
+                    }
+                    .second-line{
+                        text-indent: 15vw;
+                    }
+                }
+            }
             .weather {
                 background: url('../image/weatherBg.jpg') no-repeat center center;
                 background-size: 100% 100%;
@@ -145,12 +161,12 @@
                 }
                 .title,
                 .desc {
-                    bottom: 180px;
-                    left: 50px;
-                    z-index: 999;
+                    bottom: 200px;
+                    left: 5%;
+                    z-index: 99;
                 }
                 .arrow-link {
-                    left: 50px;
+                    left: 5%;
                     bottom: 50px;
                 }
             }
@@ -169,10 +185,10 @@
                 .title,
                 .desc {
                     top: 65%;
-                    right: 20%;
+                    right: 15%;
                 }
                 .arrow-link {
-                    right: 20%;
+                    right: 15%;
                     bottom: 60px;
                 }
             }
@@ -208,8 +224,8 @@
                 }
                 .title,
                 .desc {
-                    top: 60px;
-                    left: 50px;
+                    top: 8%;
+                    left: 8%;
                 }
                 .arrow-link {
                     bottom: 40px;
@@ -255,7 +271,7 @@
                     height: 50%;
                     background: url('../image/mobile.jpg') no-repeat left top;
                     background-size: 100% 100%;
-                    transition: all .5s linear;
+                    transition: all 1s linear;
                     opacity: 0;
                 }
                 .right-top {
@@ -265,7 +281,7 @@
                     width: 20%;
                     height: 150%;
                     opacity: 0;
-                    transition: all .5s linear;
+                    transition: all 1s linear;
                     background: rgb(94, 23, 224);
                     .title,
                     .desc {
@@ -284,7 +300,7 @@
                     width: 15%;
                     height: 50%;
                     opacity: 0;
-                    transition: all .5s linear;
+                    transition: all 1s linear;
                     background: rgb(238, 53, 84);
                 }
                 
@@ -307,7 +323,7 @@
             filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false);
             /* IE6~IE9 */
         }
-
+// @font-face()
         .title {
             color: #fff;
             position: absolute;
@@ -331,7 +347,6 @@
             line-height: 38px;
             overflow: hidden;
         }
-
         .arrow-link {
             display: inline-block;
             width: 128px;
