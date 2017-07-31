@@ -31,7 +31,7 @@ function PicListBox(index, files, x, y, w, h, fadeinTime, showTime, blur)
 
     if(id=='a6' && i==0){
         ig.onclick=function () {
-            window.open("../douban_dushu/douban.html"); 
+            window.open("../douban_dushu/"); 
         }
     }
 	ig.id = id+i;
@@ -39,7 +39,6 @@ function PicListBox(index, files, x, y, w, h, fadeinTime, showTime, blur)
 	ig.style.position = "absolute";
 	ig.style.display = "none";
 	ig.style.cssText += getBlurStr(0);
-	//ig.style.cssText +="box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset";
     }
     
     $("#"+id+0).fadeIn(fadeinTime);
