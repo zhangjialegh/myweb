@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./style/main.css">
     <link rel="stylesheet" href="./style//fly.css">
     <link rel="stylesheet" href="./style/svg.css">
+    <script src="./script/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -54,7 +55,7 @@
     <div class="swiper-container">
 
         <div class="swiper-wrapper">
-            <div class="swiper-slide swiper-no-swiping mobile" data-hash="mobile">
+            <div class="swiper-slide  mobile" data-hash="mobile">
                 <div class="bg">
 
                 </div>
@@ -78,10 +79,10 @@
 
 
             </div>
-            <div class="swiper-slide swiper-no-swiping" data-hash="main">
+            <div class="swiper-slide " data-hash="main">
                 <canvas id="canvas"></canvas>
             </div>
-            <div class="swiper-slide swiper-no-swiping weather" data-hash="weather">
+            <div class="swiper-slide  weather" data-hash="weather">
                 <div class="bg"></div>
                 <div class="weather-board">
                     <ul class="tabs">
@@ -120,7 +121,7 @@
                     </svg> 
             </a>
             </div>
-            <div class="swiper-slide swiper-no-swiping cloud" data-hash="cloud">
+            <div class="swiper-slide  cloud" data-hash="cloud">
                 <div class="bg blur"></div>
                 <div class="c-board"></div>
                 <h1 class="title" style="font-family:'华文新魏'">百度云盘</h1>
@@ -135,7 +136,7 @@
                     </svg> 
                 </a>
             </div>
-            <div class="swiper-slide swiper-no-swiping music" data-hash="music">
+            <div class="swiper-slide  music" data-hash="music">
                 <div class="bg"></div>
 
                 <div class="m-boardT">
@@ -156,7 +157,7 @@
                     </svg>
                 </a>
             </div>
-            <div class="swiper-slide swiper-no-swiping nature" data-hash="nature">
+            <div class="swiper-slide nature" data-hash="nature">
                 <div class="bg"></div>
                 <div class="n-board">
                     <h1 class="title" style="font-family:'华文新魏'">影视墙</h1>
@@ -175,13 +176,9 @@
         </div>
     </div>
 
-
-    <script src="./script/jquery-3.2.1.min.js"></script>
-    <script src="./script/swiper-3.4.2.jquery.min.js"></script>
-    <script src="./script/base.js"></script>
-
+    
     <script>
-        window.onload=function(){
+        // window.onload=function(){
 			$('#wind_container').addClass('hover');
                     $('#wind_container').addClass('fly_away_first');
                     $("#wind").css({"background-color": "#6E99C4"});
@@ -192,7 +189,7 @@
 							top:'-100%'
 						},100)
                     }, 1500);
-        };
+        // };
         //点击菜单按钮
         $('.menu').click(function () {
             $(this).toggleClass('cross');
@@ -211,6 +208,11 @@
             star();
             skewDeg();
         }
+</script>
+
+    <script src="./script/swiper-3.4.2.jquery.min.js"></script>
+    <script src="./script/base.js"></script>
+<script>
         //-----------------------------------------------------------------------------
         var swiper = new Swiper('.swiper-container', {
             loop: true,
@@ -220,7 +222,7 @@
             hashnav: true,
             hashnavWatchState: true,
             roundLengths: true,
-            noSwiping: true,
+            // noSwiping: true,
             onInit() {
                 star();
                 swiCard();
