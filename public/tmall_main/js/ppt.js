@@ -180,8 +180,6 @@ function scrollMove(ev) {
                 scrollBody.style.top = t + 'px';
             }, 100)
         }
-        //   var num = Math.round(l / wrap.offsetWidth);
-        //   lifeLists.style.left = num * wrap.offsetWidth + 'px';
 
     });
 }

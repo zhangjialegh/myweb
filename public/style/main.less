@@ -206,12 +206,12 @@
                 }
                 .title,
                 .desc {
-                    top: 50px;
-                    left: 30px;
+                    top: 60px;
+                    left: 50px;
                 }
                 .arrow-link {
-                    bottom: 30px;
-                    right: 70px;
+                    bottom: 40px;
+                    right: 100px;
                 }
             }
             .nature {
@@ -229,10 +229,13 @@
                     -webkit-transform: translateX(-150px);
                             transform: translateX(-150px);
                     background: #d2ba4c;
-                    .title,
-                    .desc {
+                    .title{
                         top: 40px;
                         left: 60px;
+                    }
+                    .desc {
+                        top: 40px;
+                        left: 30px;
                     }
                     .arrow-link {
                         bottom: 10px;
@@ -244,22 +247,22 @@
                 overflow: hidden;
                 .bg {
                     position: absolute;
-                    top: 100%;
+                    bottom:0;
                     left: 0;
-                    width: 30%;
-                    height: 100%;
+                    width: 15%;
+                    height: 50%;
                     background: url('../image/mobile.jpg') no-repeat left top;
                     background-size: 100% 100%;
-
                     transition: all .5s linear;
+                    opacity: 0;
                 }
                 .right-top {
                     position: absolute;
-                    top: -100%;
+                    top: 0;
                     left: 30%;
-                    width: 40%;
-                    height: 100%;
-
+                    width: 20%;
+                    height: 150%;
+                    opacity: 0;
                     transition: all .5s linear;
                     background: rgb(94, 23, 224);
                     .title,
@@ -274,10 +277,11 @@
                 }
                 .right-bottom {
                     position: absolute;
-                    top: 100%;
+                    bottom:0;
                     right: 0;
-                    width: 30%;
-                    height: 100%;
+                    width: 15%;
+                    height: 50%;
+                    opacity: 0;
                     transition: all .5s linear;
                     background: rgb(238, 53, 84);
                 }

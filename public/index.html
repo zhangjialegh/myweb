@@ -6,14 +6,35 @@
     <title>MY WEB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-    <!-- Link Swiper's CSS -->
+    <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="./style/swiper.min.css">
     <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style//fly.css">
     <link rel="stylesheet" href="./style/svg.css">
 </head>
 
 <body>
 
+<div id="wind">
+     <div id="plane">   
+      </div>  
+    <div id="wind_container">
+        <div id="left-wing">
+            <div class="top_left curved"> </div>
+            <div class="bottom_left curved"> </div>
+            <div class="wing wing1"></div>
+            <div class="wing wing2"></div>
+        </div>
+        <div id="right-wing">
+            <div class="top_right curved"> </div>
+            <div class="bottom_right curved"> </div>
+            <div class="wing wing3"></div>
+            <div class="wing wing4"></div>
+        </div>
+ 
+    </div>
+ 
+</div>
     <div class="menu-box">
         <svg class="menu" viewBox="0 0 800 600">
             <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
@@ -21,7 +42,13 @@
             <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
         </svg>
     </div>
-
+    <div class="home-box">
+        <svg viewBox="0 0 1024 1024" version="1.1" class="home">
+            <path d="M459.344 700.209 990.297 78.301 424.819 686.866ZM737.101 807.531 990.297 78.301 710.078 797.087ZM776.657 822.816 990.297 78.301 750.664 812.778ZM695.1 791.3 990.297 78.301 669.612 781.455ZM824.234 841.198 852.167 851.99 990.297 78.301ZM812.951 836.835 990.297 78.301 788.982 827.576ZM510.003 719.79 990.297 78.301 483.502 709.549ZM653.145 775.091 990.297 78.301 623.922 763.796ZM605.791 756.791 990.297 78.301 579.756 746.738ZM559.779 739.016 990.297 78.301 532.146 728.339Z" id="right-wing"></path>
+           <path d="M36.617 504.328 390.035 655.77 946.557 63.347Z" id="left-wing"></path>
+            <path d="M425.33 957.53 623.922 791.3 425.33 713.709Z" id="btm"></path>
+        </svg>
+    </div>
 
     <!-- Swiper -->
     <div class="swiper-container">
@@ -33,7 +60,7 @@
                 </div>
                 <div class="right-top">
                     <h1 class="title" style="font-family:'华文新魏'">天猫app</h1>
-                    <p class="desc">baufdnfidfuslfsfnsfnsd</p>
+                    <p class="desc">一个html版的天猫app首页</p>
                     <a href="./tmall_main/index.html" class="arrow-link" target="_blank">
             <span class="link-text">天猫app</span>
             <svg class="icon" viewBox="0 0 3092 1044" version="1.1" fill="none">
@@ -82,7 +109,7 @@
                     </ul>
                 </div>
                 <h1 class="title" style="font-family:'华文新魏'">天气管理系统</h1>
-                <p class="desc">baufdnfidfuslfsfnsfnsd</p>
+                <p class="desc">基于React组件开发的天气管理系统</p>
                 <a href="./weather_forecast/index.html" class="arrow-link" target="_blank">
             <span class="link-text">天气预报</span>
             <svg class="icon" viewBox="0 0 3092 1044" version="1.1" fill="none">
@@ -97,7 +124,7 @@
                 <div class="bg blur"></div>
                 <div class="c-board"></div>
                 <h1 class="title" style="font-family:'华文新魏'">百度云盘</h1>
-                <p class="desc">baufdnfidfuslfsfnsfnsd</p>
+                <p class="desc">基于原生JS的网页版百度网盘</p>
                 <a href="./baidu_cloud//index.html" class="arrow-link" target="_blank">
                     <span class="link-text">百度云盘</span>
                     <svg class="icon" viewBox="0 0 3092 1044" version="1.1" fill="none">
@@ -118,7 +145,7 @@
 
                 </div>
                 <h1 class="title" style="font-family:'华文新魏'">音乐播放器</h1>
-                <p class="desc">baufdnfidfuslfsfnsfnsd</p>
+                <p class="desc">一个网页版简易音乐播放器</p>
                 <a href="./player/index.html" class="arrow-link" target="_blank">
                     <span class="link-text">音乐播放器</span>
                     <svg class="icon" viewBox="0 0 3092 1044" version="1.1" fill="none">
@@ -133,7 +160,7 @@
                 <div class="bg"></div>
                 <div class="n-board">
                     <h1 class="title" style="font-family:'华文新魏'">影视墙</h1>
-                    <p class="desc">baufdnfidfuslfsfnsfnsd</p>
+                    <p class="desc">走进来感受大自然的鸟语花香</p>
                     <a href="./nature_window/index.html" class="arrow-link" target="_blank">
                     <span class="link-text">影视墙</span>
                     <svg class="icon" viewBox="0 0 3092 1044" version="1.1" fill="none">
@@ -154,9 +181,24 @@
     <script src="./script/base.js"></script>
 
     <script>
+        window.onload=function(){
+			$('#wind_container').addClass('hover');
+                    $('#wind_container').addClass('fly_away_first');
+                    $("#wind").css({"background-color": "#6E99C4"});
+                    setTimeout(function() {
+                        $('#wind_container').addClass('fly_away');
+                        $("#wind").css({"background-color": "#3F9BFF"});
+						$('#wind').delay(1000).animate({
+							top:'-100%'
+						},100)
+                    }, 1500);
+        };
         //点击菜单按钮
         $('.menu').click(function () {
             $(this).toggleClass('cross');
+        })
+        $('.home').click(function () {
+            window.location.href="http://bestzjl.vicp.io/";
         })
         //监听窗口缩放
         window.onresize = function () {
@@ -217,7 +259,7 @@
                         break;
                     case 4:
                         $('.c-board').css('left', '-20%');
-                        $('.c-board').animate({
+                        $('.c-board').delay(500).animate({
                             left: '40%'
                         }, 500, function () {
                             $('.cloud .desc').css({
@@ -233,10 +275,10 @@
                         })
                         break;
                     case 5:
-                        $('.m-boardB').delay(200).animate({
+                        $('.m-boardB').delay(500).animate({
                             left: '100%',
                         }, 500);
-                        $('.m-boardT').delay(200).animate({
+                        $('.m-boardT').delay(500).animate({
                             left: '-100%'
                         }, 500, function () {
                             $('.music .desc').css({
@@ -259,9 +301,11 @@
                             width: 0,
                         }).delay(500).animate({
                             left: 0,
+                            right:0,
                             width: '100%',
                         }, 500).animate({
                             top: 0,
+                            bottom:0,
                             height: '100%',
                         }, 500, function () {
                             $('.n-board').animate({
@@ -281,9 +325,21 @@
                         });
                         break;
                     case 7:
-                        $('.mobile .bg').css('top', 0);
-                        $('.mobile .right-top').css('top', 0);
-                        $('.mobile .right-bottom').css('top', 0);
+                        $('.mobile .bg').css({
+                            'width':'30%',
+                            'height':'100%',
+                            'opacity':1
+                        });
+                        $('.mobile .right-top').css({
+                            'width':'40%',
+                            'height':'100%',
+                            'opacity':1
+                        });
+                        $('.mobile .right-bottom').css({
+                            'width':'30%',
+                            'height':'100%',
+                            'opacity':1
+                        });
 
                         $('.mobile .desc').css({
                             transform: 'translateY(50px)',
@@ -295,9 +351,7 @@
                         });
                         $('.mobile .circle').addClass('draw-circle');
                         $('.mobile .arrow').addClass('move-arrow');
-                        // $('.mobile .bg').css('top', 0);
-                        // $('.mobile .right-top').css('top', 0);
-                        // $('.mobile .right-bottom').css('top', 0);
+
                         break;
                     default:
                         break;
@@ -351,13 +405,14 @@
 
                         $('.music .desc').animate({
                             height: 0,
-                        }, 100, () => {
-                            $(this).css('transform', 'translateY(88px)');
+                        }, 100, function () {
+                            $('.music .desc').css('transform', 'translateY(88px)');
                         });
                         $('.music .title').animate({
                             height: 0,
-                        }, 100, () => {
-                            $(this).css('transform', 'translateY(38px)');
+                        }, 100, function () {
+                            $('.music .title').css('transform', 'translateY(38px)');
+
                             $('.m-boardT').animate({
                                 left: '-50%',
                             }, 200);
@@ -404,9 +459,21 @@
                             height: 0,
                         }, 100, () => {
                             $(this).css('transform', 'translateY(38px)');
-                            $('.mobile .right-top').css('top', '-100%');
-                            $('.mobile .bg').css('top', '100%');
-                            $('.mobile .right-bottom').css('top', '100%');
+                            $('.mobile .bg').css({
+                            'width':'15%',
+                            'height':'50%',
+                            'opacity':0
+                        });
+                        $('.mobile .right-top').css({
+                            'width':'20%',
+                            'height':'50%',
+                            'opacity':0
+                        });
+                        $('.mobile .right-bottom').css({
+                            'width':'15%',
+                            'height':'50%',
+                            'opacity':0
+                        });
                         })
                         break;
                     default:
@@ -418,9 +485,21 @@
                 if (snapIndex === 0) snapIndex = 6;
                 switch (snapIndex) {
                     case 1:
-                        $('.mobile .bg').css('top', 0);
-                        $('.mobile .right-top').css('top', 0);
-                        $('.mobile .right-bottom').css('top', 0);
+                        $('.mobile .bg').css({
+                            'width':'30%',
+                            'height':'100%',
+                            'opacity':1
+                        });
+                        $('.mobile .right-top').css({
+                            'width':'40%',
+                            'height':'100%',
+                            'opacity':1
+                        });
+                        $('.mobile .right-bottom').css({
+                            'width':'30%',
+                            'height':'100%',
+                            'opacity':1
+                        });
 
                         $('.mobile .desc').css({
                             transform: 'translateY(50px)',
@@ -458,7 +537,7 @@
                         });
                         break;
                     case 4:
-                        $('.c-board').animate({
+                        $('.c-board').delay(500).animate({
                             left: '40%'
                         }, 500, function () {
                             $('.cloud .desc').css({
@@ -474,10 +553,10 @@
                         })
                         break;
                     case 5:
-                        $('.m-boardB').delay(200).animate({
+                        $('.m-boardB').delay(500).animate({
                             left: '100%',
                         }, 500);
-                        $('.m-boardT').delay(200).animate({
+                        $('.m-boardT').delay(500).animate({
                             left: '-100%'
                         }, 500, function () {
                             $('.music .desc').css({
@@ -500,9 +579,11 @@
                             width: 0,
                         }).delay(500).animate({
                             left: 0,
+                            right:0,
                             width: '100%',
                         }, 500).animate({
                             top: 0,
+                            bottom:0,
                             height: '100%',
                         }, 500, function () {
                             $('.n-board').animate({
@@ -540,9 +621,21 @@
                         }, 100, () => {
                             $(this).css('transform', 'translateY(38px)');
 
-                            $('.mobile .right-top').css('top', '-100%');
-                            $('.mobile .bg').css('top', '100%');
-                            $('.mobile .right-bottom').css('top', '100%');
+                             $('.mobile .bg').css({
+                            'width':'15%',
+                            'height':'50%',
+                            'opacity':0
+                        });
+                        $('.mobile .right-top').css({
+                            'width':'20%',
+                            'height':'50%',
+                            'opacity':0
+                        });
+                        $('.mobile .right-bottom').css({
+                            'width':'15%',
+                            'height':'50%',
+                            'opacity':0
+                        });
                         });
                         break;
                     case 3:
