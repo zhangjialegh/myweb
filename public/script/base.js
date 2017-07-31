@@ -191,22 +191,26 @@ function skewDeg() {
     $('.m-boardB').css('transform','skewX('+-A+'deg)');
 
     $('.music .bg').on('mouseover',function () {
-        $(this).css('transform','scale(1.1)');
-        $('.m-boardT').animate({
-            left:'-105%',
-        },500);
-        $('.m-boardB').animate({
-            left:'105%',
-        })
+        $('.music .bg').css('transform','scale(1.1)');
+        $('.m-boardT').css('left','-105%');
+        $('.m-boardB').css('left','105%');
+        // $('.m-boardT').animate({
+        //     left:'-105%',
+        // },500);
+        // $('.m-boardB').animate({
+        //     left:'105%',
+        // })
     });
     $('.music .bg').on('mouseout',function () {
-        $(this).css('transform','scale(1)');
-        $('.m-boardT').animate({
-            left:'-100%',
-        },500);
-        $('.m-boardB').animate({
-            left:'100%',
-        })
+        $('.music .bg').css('transform','scale(1)');
+        $('.m-boardT').css('left','-100%');
+        $('.m-boardB').css('left','100%');
+        // $('.m-boardT').animate({
+        //     left:'-100%',
+        // },500);
+        // $('.m-boardB').animate({
+        //     left:'100%',
+        // })
     })
 }
 

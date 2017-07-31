@@ -209,7 +209,6 @@
             skewDeg();
         }
 </script>
-
     <script src="./script/swiper-3.4.2.jquery.min.js"></script>
     <script src="./script/base.js"></script>
 <script>
@@ -277,12 +276,15 @@
                         })
                         break;
                     case 5:
-                        $('.m-boardB').delay(500).animate({
-                            left: '100%',
-                        }, 500);
-                        $('.m-boardT').delay(500).animate({
-                            left: '-100%'
-                        }, 500, function () {
+                       $('.m-boardB').delay(2000).css('left','100%');
+                        $('.m-boardT').delay(2000).css('left','-100%');
+
+                        // $('.m-boardB').delay(500).animate({
+                        //     left: '100%',
+                        // }, 500);
+                        // $('.m-boardT').delay(500).animate({
+                        //     left: '-100%'
+                        // }, 500, function () {
                             $('.music .desc').css({
                                 transform: 'translateY(50px)',
                                 height: '38px',
@@ -293,7 +295,7 @@
                             });
                             $('.music .circle').addClass('draw-circle');
                             $('.music .arrow').addClass('move-arrow');
-                        })
+                        // })
                         break;
                     case 6:
                         $('.nature .bg').css({
@@ -414,13 +416,14 @@
                             height: 0,
                         }, 100, function () {
                             $('.music .title').css('transform', 'translateY(38px)');
-
-                            $('.m-boardT').animate({
-                                left: '-50%',
-                            }, 200);
-                            $('.m-boardB').animate({
-                                left: '50%',
-                            }, 200)
+                            $('.m-boardT').css('left','-50%');
+                             $('.m-boardB').css('left','50%');
+                            // $('.m-boardT').animate({
+                            //     left: '-50%',
+                            // }, 200);
+                            // $('.m-boardB').animate({
+                            //     left: '50%',
+                            // }, 200)
                         })
                         break;
                     case 6:
@@ -555,12 +558,14 @@
                         })
                         break;
                     case 5:
-                        $('.m-boardB').delay(500).animate({
-                            left: '100%',
-                        }, 500);
-                        $('.m-boardT').delay(500).animate({
-                            left: '-100%'
-                        }, 500, function () {
+                        $('.m-boardB').css('left','100%');
+                        $('.m-boardT').css('left','-100%');
+                        // $('.m-boardB').delay(500).animate({
+                        //     left: '100%',
+                        // }, 500);
+                        // $('.m-boardT').delay(500).animate({
+                        //     left: '-100%'
+                        // }, 500, function () {
                             $('.music .desc').css({
                                 transform: 'translateY(50px)',
                                 height: '38px',
@@ -571,7 +576,7 @@
                             });
                             $('.music .circle').addClass('draw-circle');
                             $('.music .arrow').addClass('move-arrow');
-                        })
+                        // })
                         break;
                     case 6:
                         $('.nature .bg').css({
@@ -687,12 +692,14 @@
                             height: 0,
                         }, 100, () => {
                             $(this).css('transform', 'translateY(38px)');
-                            $('.m-boardT').animate({
-                                left: '-50%',
-                            }, 200);
-                            $('.m-boardB').animate({
-                                left: '50%',
-                            }, 200)
+                            $('.m-boardT').css('left','-50%');
+                             $('.m-boardB').css('left','50%');
+                            // $('.m-boardT').animate({
+                            //     left: '-50%',
+                            // }, 200);
+                            // $('.m-boardB').animate({
+                            //     left: '50%',
+                            // }, 200)
                         })
                         break;
                     case 6:
@@ -725,7 +732,7 @@
                 }
             }
         });
-    </script>
+</script>
 </body>
 
 </html>

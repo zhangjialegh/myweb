@@ -188,6 +188,7 @@ body {
   height: 100%;
   width: 100%;
   background: #5ee4a1;
+  transition: all 500ms linear;
 }
 .swiper-wrapper .music .m-boardB {
   position: absolute;
@@ -196,6 +197,7 @@ body {
   height: 100%;
   width: 100%;
   background: #a45ee4;
+  transition: all 500ms linear;
 }
 .swiper-wrapper .music .title,
 .swiper-wrapper .music .desc {
