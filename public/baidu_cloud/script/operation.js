@@ -7,7 +7,7 @@ function createFilesHtml(pageNum) {
         return;
     }
     if (data.length === 0) {
-        container.style.background = 'url(./image/kong.png) no-repeat center center';
+        container.style.background = 'url(./img/kong.png) no-repeat center center';
         container.style.backgroundSize = '300px 200px';
     } else {
         container.style.background = '';

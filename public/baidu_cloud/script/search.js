@@ -19,7 +19,7 @@ var searchHtml = (function() {
             };
             data = searchTargets(datauser.files);
             if (data.length === 0) {
-                container.style.background = 'url(./image/searchkong.png) no-repeat center center/300px 200px';
+                container.style.background = 'url(./img/searchkong.png) no-repeat center center/300px 200px';
             }
             newFile.style.display = 'none';
             listCreateFile.classList.add('active');
