@@ -53,7 +53,8 @@ body {
     left: -35px;
     background: url('./img/list.png') no-repeat center center;
     background-size: contain;
-    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
 }
 #wrapper {
     position: absolute;
@@ -376,7 +377,8 @@ body {
 }
 
 #play-list ul li .li-box span {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding-right: 10px;
     display: block;
     max-width: 100%;
@@ -435,7 +437,7 @@ body {
     height: 60px;
     line-height: 60px;
     background: #C9CCD3;
-    background-image: -webkit-linear-gradient(left, #434343 0%, black 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#434343), to(black));
     background-image: linear-gradient(to right, #434343 0%, black 100%);
     text-indent: 1em;
     border-bottom: transparent solid 1px;

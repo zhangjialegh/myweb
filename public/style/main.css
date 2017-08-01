@@ -202,6 +202,7 @@ body {
   height: 100%;
   width: 100%;
   background: #5ee4a1;
+  -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
 .swiper-wrapper .music .m-boardB {
@@ -211,6 +212,7 @@ body {
   height: 100%;
   width: 100%;
   background: #a45ee4;
+  -webkit-transition: all 500ms linear;
   transition: all 500ms linear;
 }
 .swiper-wrapper .music .title,
@@ -260,6 +262,7 @@ body {
   height: 50%;
   background: url('../image/mobile.jpg') no-repeat left top;
   background-size: 100% 100%;
+  -webkit-transition: all 1s linear;
   transition: all 1s linear;
   opacity: 0;
 }
@@ -270,6 +273,7 @@ body {
   width: 20%;
   height: 150%;
   opacity: 0;
+  -webkit-transition: all 1s linear;
   transition: all 1s linear;
   background: #5e17e0;
 }
@@ -289,6 +293,7 @@ body {
   width: 15%;
   height: 50%;
   opacity: 0;
+  -webkit-transition: all 1s linear;
   transition: all 1s linear;
   background: #ee3554;
 }

@@ -1,3 +1,5 @@
+"use strict";
+
 // 1 写一个方法，方法接收两个参数，一个是所有文件的数据(例如下面的 user_data.files),另外一个参数是某个文件的id，之后这个方法的名字可以随意起例如：getItemDataById，这个方法的作用是：根据指定的id，拿到数据中对应id的那个文件的数据。
 
 // var data = user_data.files;
@@ -7,90 +9,76 @@
 
 var user_data = {
   "maxId": 10,
-  "files": [
-    {
-      "name": "JS",
-      "id": 0,
-      "type": "root",
-      "children": [
-        {
-          "name": "框架",
-          "id": 1,
-          "pId": 0,
-          "children": [
-            {
-              "name": "React",
-              "id": 3,
-              "pId": 1,
-              "children": []
-            },
-            {
-              "name": "Vue",
-              "id": 4,
-              "pId": 1,
-              "children": [
-                {
-                  "name": "vue-cli",
-                  "id": 5,
-                  "pId": 4,
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": "Node",
-              "id": 6,
-              "pId": 1,
-              "children": [
-                {
-                  "name": "npm",
-                  "id": 7,
-                  "pId": 6,
-                  "children": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Html5",
-          "id": 2,
-          "pId": 0,
+  "files": [{
+    "name": "JS",
+    "id": 0,
+    "type": "root",
+    "children": [{
+      "name": "框架",
+      "id": 1,
+      "pId": 0,
+      "children": [{
+        "name": "React",
+        "id": 3,
+        "pId": 1,
+        "children": []
+      }, {
+        "name": "Vue",
+        "id": 4,
+        "pId": 1,
+        "children": [{
+          "name": "vue-cli",
+          "id": 5,
+          "pId": 4,
           "children": []
-        }
-      ]
-    }
-  ]
+        }]
+      }, {
+        "name": "Node",
+        "id": 6,
+        "pId": 1,
+        "children": [{
+          "name": "npm",
+          "id": 7,
+          "pId": 6,
+          "children": []
+        }]
+      }]
+    }, {
+      "name": "Html5",
+      "id": 2,
+      "pId": 0,
+      "children": []
+    }]
+  }]
 };
 //获取指定id及它所有祖先数据
-function getAllParentById(data, id){
+function getAllParentById(data, id) {
   var parentParent = [];
-  var p1=getItemDataById(data,id);
-(function getAllParent(p){
- parentParent.unshift(p);
- if(p.pId === undefined) return;
- getAllParent(getItemDataById(data,p.pId));
-})(p1);
-return parentParent;
+  var p1 = getItemDataById(data, id);
+  (function getAllParent(p) {
+    parentParent.unshift(p);
+    if (p.pId === undefined) return;
+    getAllParent(getItemDataById(data, p.pId));
+  })(p1);
+  return parentParent;
 }
 //获取指定id的数据
-function getItemDataById(datas,num){
-   var obj=null;
- datas = datas.files?datas.files:datas;
- (function fn(Children){
-   var len = Children.length;
-    for(var i= 0;i<len;i++){
-      if(Children[i].id == num){
+function getItemDataById(datas, num) {
+  var obj = null;
+  datas = datas.files ? datas.files : datas;
+  (function fn(Children) {
+    var len = Children.length;
+    for (var i = 0; i < len; i++) {
+      if (Children[i].id == num) {
         obj = Children[i];
-      }else{
-      fn(Children[i].children);
+      } else {
+        fn(Children[i].children);
       };
-      if(obj) return;
+      if (obj) return;
     };
- })(datas);
- return obj;
+  })(datas);
+  return obj;
 };
-
 
 // var container = document.querySelector('.body');
 // var createFile = document.querySelector('.newfile');

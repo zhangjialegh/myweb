@@ -204,7 +204,8 @@ body {
   height: 6.34rem;
   width: 13.2rem;
   margin: 0 0.6rem;
-  box-shadow: 0 0.2rem 0.4rem -0.2rem #000;
+  -webkit-box-shadow: 0 0.2rem 0.4rem -0.2rem #000;
+          box-shadow: 0 0.2rem 0.4rem -0.2rem #000;
 }
 .container .scroll-container .scroll-body .wrap-lists .ppt-container .nav-bar {
   width: 14.4rem;
@@ -281,14 +282,16 @@ body {
   background-size: 1.32rem 1.32rem;
 }
 .container .scroll-container .scroll-body .content {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0.56rem;
   width: 14.4rem;
   height: auto;
   padding: 0 0.56rem;
 }
 .container .scroll-container .scroll-body .content .content-one {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 2px solid #ededed;
   float: left;
   width: 6.4rem;
@@ -297,7 +300,8 @@ body {
   margin-bottom: 0.48rem;
 }
 .container .scroll-container .scroll-body .content .content-one .things-one {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 6.28rem;
   height: 6.36rem;
   background: url(../image/things-one.png) no-repeat center center;
@@ -355,7 +359,8 @@ body {
 .container .scroll-container .scroll-body .content .content-one .one-recomend {
   width: 6.32rem;
   height: 1.72rem;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-top: 2px dotted #e8e8e8;
   font-size: 0.42rem;
   padding: 0.24rem 0.56rem;
@@ -364,7 +369,8 @@ body {
   margin-left: 0.16rem;
 }
 .container .scroll-container .scroll-body .content .content-two .things-two {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 6.28rem;
   height: 6.36rem;
   background: url(../image/things-two.png) no-repeat center center;
@@ -393,7 +399,8 @@ body {
   margin: 0.02rem 0 0.02rem 0.52rem;
 }
 .container .scroll-container .scroll-body .content .content-thr {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 2px solid #ededed;
   float: left;
   width: 6.4rem;
@@ -401,7 +408,8 @@ body {
   margin-right: 0.16rem;
 }
 .container .scroll-container .scroll-body .content .content-thr .things-thr {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 6.32rem;
   height: 6.36rem;
   background: url(../image/things-thrtop.png) no-repeat center center;
@@ -410,7 +418,8 @@ body {
   position: absolute;
 }
 .container .scroll-container .scroll-body .content .content-thr .things-thrbottom {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 6.32rem;
   height: 12.2rem;
   background: url(../image/things-thrbottom.png) no-repeat center center;
@@ -470,11 +479,14 @@ body {
   height: 0.8rem;
   color: #fff;
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  justify-content: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   -webkit-box-align: center;
-  align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
 }
 .container .scroll-container .scroll-body .life-style .life-container .life-lists li .life-dec .dec-word {
   font-size: 0.48rem;
@@ -501,6 +513,7 @@ body {
   width: 14.4rem;
   background-color: #fff;
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .footer .return-top {
@@ -517,7 +530,8 @@ body {
 }
 .footer div {
   -webkit-box-flex: 1;
-  flex-grow: 1;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
   height: 1.68rem;
   width: 3.6rem;
   margin: 0.12rem 0;

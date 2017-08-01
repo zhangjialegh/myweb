@@ -1,3 +1,5 @@
+'use strict';
+
 //弹出提示窗//-------------------------------------------------------------
 function popTips(refer, description) {
     var tips = document.querySelector('.tips');
@@ -5,7 +7,7 @@ function popTips(refer, description) {
     tips.classList.remove(refer ? 'error' : 'correct');
     tips.classList.add(refer ? 'correct' : 'error');
     tips.innerHTML = description;
-    setTimeout(function() {
+    setTimeout(function () {
         tips.style.top = '';
     }, 1000);
 }
@@ -41,32 +43,32 @@ function tipboxDisplay(type) {
 }
 
 //全选的点击//------------------------------------------------------------
-(function() {
+(function () {
     var checkBox = document.querySelector('.select-all .checkbox');
-    checkBox.addEventListener('click', function() {
+    checkBox.addEventListener('click', function () {
         console.log(222222);
         var fileBox = document.querySelectorAll('.file-box');
         if (!checkBox.classList.toggle('active')) {
-            Array.from(fileBox).forEach(function(item, i) {
+            Array.from(fileBox).forEach(function (item, i) {
                 item.dataset.select = "false";
                 item.classList.remove('active');
                 item.children[0].classList.remove('active');
-            })
+            });
         } else {
-            Array.from(fileBox).forEach(function(item, i) {
+            Array.from(fileBox).forEach(function (item, i) {
                 item.dataset.select = "true";
                 item.classList.add('active');
                 item.children[0].classList.add('active');
-            })
+            });
         }
         checkSelectfiles();
-    })
+    });
 })();
 
 //点击导航路径进入对应的文件夹//--------------------------------------------
-(function() {
+(function () {
     var filePath = document.querySelector('.left-dis');
-    filePath.addEventListener('click', function(e) {
+    filePath.addEventListener('click', function (e) {
 
         var target = e.target,
             targetCls = target.classList;
@@ -84,14 +86,13 @@ function tipboxDisplay(type) {
             para.search = false;
             turnPage(pageNum);
         }
-
     });
 })();
 
 //选中文件夹之后头部菜单对文件的操作//-----------------------------------------------------
-(function() {
+(function () {
     var topLeft = document.querySelector('.topleft');
-    topLeft.addEventListener('click', function(e) {
+    topLeft.addEventListener('click', function (e) {
         var target = e.target,
             targetCls = target.classList;
         if (targetCls.contains('delete-file')) {
@@ -121,14 +122,14 @@ function tipboxDisplay(type) {
     var tipSure = tipBox.querySelector('.tip-sure');
     var tipCancel = tipBox.querySelector('.tip-cancel');
     var tipClose = tipBox.querySelector('.tip-close');
-    tipBox.addEventListener('click', function(e) {
+    tipBox.addEventListener('click', function (e) {
         var target = e.target,
             targetCls = target.classList;
         if (targetCls.contains('tip-sure')) {
             if (para.smname === undefined) {
                 deleteSelectedFiles(datauser.files, para.selected);
                 if (para.search) {
-                    deleteSelectedFiles(data, para.selected)
+                    deleteSelectedFiles(data, para.selected);
                 };
                 //   for (var i = 0; i < data.length; i++) {
                 //     if (selected.indexOf(data[i].id + '') != -1) {
@@ -136,17 +137,15 @@ function tipboxDisplay(type) {
                 //       i--;
                 //     }
                 //   }
-                setTimeout(function() {
+                setTimeout(function () {
                     popTips(true, '文件夹删除成功！');
                     tipBox.style.top = '1000px';
                     tipWindow.style.display = '';
                 }, 500);
-            } else {
-
-            }
+            } else {}
         }
         if (targetCls.contains('tip-cancel') || targetCls.contains('tip-close')) {
-            setTimeout(function() {
+            setTimeout(function () {
                 popTips(false, '文件夹删除失败！');
                 tipBox.style.top = '1000px';
                 tipWindow.style.display = '';
@@ -159,9 +158,8 @@ function tipboxDisplay(type) {
             top: -400
         }, 400, 'backBoth');
         turnPage(pageNum);
-    })
+    });
 })();
-
 
 //树形结构弹窗//------------------------------------------
 function popTree(data, id) {
@@ -176,15 +174,15 @@ function popTree(data, id) {
             i;
         for (i = 0; i < len; i++) {
             if (id && id.indexOf(data[i].id + '') != -1) continue;
-            str += `<li><p data-id=${data[i].id} style="padding-left:${n*15}px"><a class="${data[i].children.length > 0 ? 'add' : ''}"; href="javascript:;"></a><i class="close"></i><span>${data[i].name}</span></p>`;
+            str += '<li><p data-id=' + data[i].id + ' style="padding-left:' + n * 15 + 'px"><a class="' + (data[i].children.length > 0 ? 'add' : '') + '"; href="javascript:;"></a><i class="close"></i><span>' + data[i].name + '</span></p>';
 
             if (data[i].children.length > 0) {
                 count.push(n);
-                str += `<ul data-count =${n++}>${createListHtml(data[i].children)}</ul>`;
+                str += '<ul data-count =' + n++ + '>' + createListHtml(data[i].children) + '</ul>';
                 n = count.pop();
             }
 
-            str += `</li>`;
+            str += '</li>';
         }
         return str;
     }
@@ -200,9 +198,9 @@ function popTree(data, id) {
         for (var i = 0; i < childLi.length; i++) {
             // 获取到每个li里面的span标题
             // var caption = childLi[i].firstElementChild;
-            childLi[i].children[0].onclick = function() {
+            childLi[i].children[0].onclick = function () {
                 var allP = document.querySelectorAll('.tree p');
-                Array.from(allP).forEach(function(item, i) {
+                Array.from(allP).forEach(function (item, i) {
                     item.classList.remove('active');
                 });
                 this.classList.add('active');
@@ -214,7 +212,8 @@ function popTree(data, id) {
                 var parentParent = this.parentNode.parentNode;
                 // 获取到当前点击这个父级父级下面的所有的ul
                 var childrenUl = parentParent.querySelectorAll('ul');
-                if (next) { // 如果next存在
+                if (next) {
+                    // 如果next存在
                     // 根据切换className中的 line  来判断是否显示和隐藏
                     this.children[1].classList.toggle('open');
                     next.style.display = this.children[0].classList.toggle('line') ? 'block' : '';
@@ -227,7 +226,7 @@ function popTree(data, id) {
 }
 
 //鼠标画框与碰撞检测//-----------------------------------------------------
-document.onmousedown = function(e) {
+document.onmousedown = function (e) {
     if (e.target.parentNode.classList.contains('context-list') || e.target.parentNode.classList.contains('context-menu')) return;
     contextList.style.display = 'none';
     contxtMenu.style.display = 'none';
@@ -243,7 +242,7 @@ document.onmousedown = function(e) {
         var div = document.createElement('div');
         document.body.appendChild(div);
 
-        window.onmousemove = function(e) {
+        window.onmousemove = function (e) {
             var x1 = e.pageX,
                 y1 = e.pageY;
             if (x1 <= Fq.getRect(container, 'left')) x1 = Fq.getRect(container, 'left');
@@ -273,7 +272,7 @@ document.onmousedown = function(e) {
             checkSelectfiles();
         };
 
-        window.onmouseup = function() {
+        window.onmouseup = function () {
             document.body.removeChild(div);
             this.onmousemove = this.onmouseup = null;
         };

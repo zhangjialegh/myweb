@@ -1,74 +1,66 @@
+"use strict";
+
 var musicInfo = [{
-        song: "童话镇",
-        singer: "陈一发",
-        src: "mp3/1童话镇.mp3",
-        img: 'css/img/1.jpg',
-        lyric: 'tonghuazhen'
-    },
-    {
-        song: "以后的以后",
-        singer: "庄心妍",
-        src: "mp3/2以后的以后.mp3",
-        img: 'css/img/2.jpg',
-        lyric: 'yihoudeyihou'
-    },
-    {
-        song: "Fade",
-        singer: "Alan Walker",
-        src: "mp3/3Fade.mp3",
-        img: 'css/img/3.jpg',
-        lyric: 'Fade'
-    },
-    {
-        song: "默",
-        singer: "那英",
-        src: "mp3/4默.mp3",
-        img: 'css/img/4.jpg',
-        lyric: 'mo'
-    },
-    {
-        song: "白芍花开",
-        singer: "张碧晨",
-        src: "mp3/5白芍花开.mp3",
-        img: 'css/img/5.jpg',
-        lyric: 'baishaohuakai'
-    },
-    {
-        song: "好可惜",
-        singer: "庄心妍",
-        src: "mp3/6好可惜.mp3",
-        img: 'css/img/6.jpg',
-        lyric: 'haokexi'
-    },
-    {
-        song: "小半",
-        singer: "陈粒",
-        src: "mp3/7小半.mp3",
-        img: 'css/img/7.jpg',
-        lyric: 'xiaoban'
-    },
-    {
-        song: "魔鬼中的天使",
-        singer: "田馥甄",
-        src: "mp3/8魔鬼中的天使.mp3",
-        img: 'css/img/8.jpg',
-        lyric: 'moguizhongdetianshi',
-    },
-    {
-        song: "我要你",
-        singer: "任素汐",
-        src: "mp3/9我要你.mp3",
-        img: 'css/img/9.jpg',
-        lyric: 'woyaoni'
-    },
-    {
-        song: "告白气球",
-        singer: "周杰伦",
-        src: "mp3/10告白气球.mp3",
-        img: "css/img/10.jpg",
-        lyric: "gaobaiqiqiu"
-    }
-];
+    song: "童话镇",
+    singer: "陈一发",
+    src: "mp3/1童话镇.mp3",
+    img: 'css/img/1.jpg',
+    lyric: 'tonghuazhen'
+}, {
+    song: "以后的以后",
+    singer: "庄心妍",
+    src: "mp3/2以后的以后.mp3",
+    img: 'css/img/2.jpg',
+    lyric: 'yihoudeyihou'
+}, {
+    song: "Fade",
+    singer: "Alan Walker",
+    src: "mp3/3Fade.mp3",
+    img: 'css/img/3.jpg',
+    lyric: 'Fade'
+}, {
+    song: "默",
+    singer: "那英",
+    src: "mp3/4默.mp3",
+    img: 'css/img/4.jpg',
+    lyric: 'mo'
+}, {
+    song: "白芍花开",
+    singer: "张碧晨",
+    src: "mp3/5白芍花开.mp3",
+    img: 'css/img/5.jpg',
+    lyric: 'baishaohuakai'
+}, {
+    song: "好可惜",
+    singer: "庄心妍",
+    src: "mp3/6好可惜.mp3",
+    img: 'css/img/6.jpg',
+    lyric: 'haokexi'
+}, {
+    song: "小半",
+    singer: "陈粒",
+    src: "mp3/7小半.mp3",
+    img: 'css/img/7.jpg',
+    lyric: 'xiaoban'
+}, {
+    song: "魔鬼中的天使",
+    singer: "田馥甄",
+    src: "mp3/8魔鬼中的天使.mp3",
+    img: 'css/img/8.jpg',
+    lyric: 'moguizhongdetianshi'
+}, {
+    song: "我要你",
+    singer: "任素汐",
+    src: "mp3/9我要你.mp3",
+    img: 'css/img/9.jpg',
+    lyric: 'woyaoni'
+}, {
+    song: "告白气球",
+    singer: "周杰伦",
+    src: "mp3/10告白气球.mp3",
+    img: "css/img/10.jpg",
+    lyric: "gaobaiqiqiu"
+}];
 function add0(num) {
     return num < 10 ? "0" + num : "" + num;
 }
@@ -83,11 +75,11 @@ function SecToMin(num) {
 function preLoad(src) {
     var image = new Image();
     image.src = src;
-    if (image.complete) { // 如果图片已经存在于浏览器缓存，直接调用回调函数 
+    if (image.complete) {
+        // 如果图片已经存在于浏览器缓存，直接调用回调函数 
         return;
     }
-    image.onload = function() {
-    };
+    image.onload = function () {};
 }
 
 function toggle(obj, cls) {
@@ -113,7 +105,9 @@ function hashToJson(str) {
 
     var arr = str.match(/\w+=\w+/g);
 
-    if (!arr) { return str.substr(1); }
+    if (!arr) {
+        return str.substr(1);
+    }
 
     for (var i = 0; i < arr.length; i++) {
         json[arr[i].split("=")[0]] = arr[i].split("=")[1];
@@ -155,8 +149,8 @@ var oListMask = document.getElementById('list-mask');
 var olyricLine = document.getElementById('line');
 var musicList = document.querySelector('.music-list');
 var rightWrapper = document.querySelector('.right-wrapper');
-var Wrapper=document.getElementById('wrapper');
-var flag=false;
+var Wrapper = document.getElementById('wrapper');
+var flag = false;
 
 var player = {
     duration: 0,
@@ -197,17 +191,16 @@ var lyric = {
 //-------------------------------
 
 
-
-player.init = function() {
+player.init = function () {
     player.loaddata(player.nowSong);
     player.load();
     player.getTotalTime();
     player.changeHash();
 };
 
-player.perSec = function() {
+player.perSec = function () {
     clearInterval(this.perSecTimer);
-    this.perSecTimer = setInterval(function() {
+    this.perSecTimer = setInterval(function () {
         for (var i = 0; i < player.perSecArrFn.length; i++) {
             if (typeof player.perSecArrFn[i] === "function") {
                 player.perSecArrFn[i].call(player);
@@ -216,9 +209,9 @@ player.perSec = function() {
     }, 1000);
 };
 
-player.getTotalTime = function() {
+player.getTotalTime = function () {
     var n = 0;
-    var timer = setInterval(function() {
+    var timer = setInterval(function () {
         n++;
         if (audiOne.duration && audiOne.duration > 1) {
             clearInterval(timer);
@@ -233,7 +226,7 @@ player.getTotalTime = function() {
     }, 20);
 };
 
-player.getCurTime = function() {
+player.getCurTime = function () {
     if (!audiOne.currentTime || this.curDraging) {
         return;
     }
@@ -242,7 +235,7 @@ player.getCurTime = function() {
 };
 
 //从musicInfo加载数据
-player.loaddata = function(num) {
+player.loaddata = function (num) {
     this.song = musicInfo[num].song;
     this.singer = musicInfo[num].singer + "-" + this.song;
     this.src = musicInfo[num].src;
@@ -259,7 +252,7 @@ player.loaddata = function(num) {
 };
 
 //加载歌曲src,song,singer
-player.load = function() {
+player.load = function () {
     if (this.src && this.song && this.singer) {
         audiOne.src = this.src;
         oSongName.innerHTML = this.song;
@@ -273,7 +266,7 @@ player.load = function() {
     }
 };
 
-player.playerlist = function() {
+player.playerlist = function () {
     var arrColor = ["linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%)", "linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%)", "linear-gradient(to top, #cc208e 0%, #6713d2 100%)", "linear-gradient(to right, #00dbde 0%, #fc00ff 100%)"];
     for (var i = 0; i < musicInfo.length; i++) {
         var li = document.createElement('li');
@@ -290,7 +283,7 @@ player.playerlist = function() {
             li.className = "active";
         }
         li.index = i;
-        li.onclick = function() {
+        li.onclick = function () {
             oPlayListLi[player.nowSong].className = "";
             player.reset();
             player.nowSong = this.index;
@@ -306,7 +299,7 @@ player.playerlist = function() {
             player.perSec();
             // lyReset();
             scrollToMove(oPlayListUl, 120 * (this.index - 2), 400);
-        }
+        };
         span.innerHTML = musicInfo[i].song + "-" + musicInfo[i].singer;
         list.appendChild(span);
         li.appendChild(filter);
@@ -316,25 +309,25 @@ player.playerlist = function() {
     }
 };
 
-player.preloadImg = function() {
+player.preloadImg = function () {
     for (var i = 0; i < musicInfo.length; i++) {
         preLoad(musicInfo[i].img);
     }
 };
 
-player.play = function() {
+player.play = function () {
     audiOne.play();
     // oDisk.style.animationPlayState="running";
     oDisk.style.WebkitAnimationPlayState = "running";
 };
 
-player.pause = function() {
+player.pause = function () {
     audiOne.pause();
     // oDisk.style.animationPlayState="paused";
     oDisk.style.WebkitAnimationPlayState = "paused";
 };
 
-player.reset = function() {
+player.reset = function () {
     audiOne.currentTime = 0.001;
     oBufferedBar.style.width = "0px";
     player.buffered = 0;
@@ -342,7 +335,7 @@ player.reset = function() {
     player.processCur();
 };
 
-player.ifEnded = function() {
+player.ifEnded = function () {
     if (audiOne.ended) {
         player.ended = true;
         player.preloadImg();
@@ -363,44 +356,41 @@ player.ifEnded = function() {
                 if (random < 0) {
                     random = 0;
                 }
-            }
-            while (random == player.nowSong);
+            } while (random == player.nowSong);
             oPlayListLi[player.nowSong].className = "";
             player.nowSong = random;
             oPlayListLi[player.nowSong].className = "active";
             player.init();
             player.play();
         }
-
     } else {
         player.ended = false;
     }
 };
 
-player.getBuffered = function() {
+player.getBuffered = function () {
     if (audiOne.readyState == 4) {
         player.buffered = audiOne.buffered.end(0);
         oBufferedBar.style.width = Math.round(player.buffered / player.duration) * 100 + "%";
     }
 };
 
-player.changeHash = function() {
+player.changeHash = function () {
     window.location.hash = "song=" + this.nowSong;
 };
 
-player.getHash = function() {
+player.getHash = function () {
     if (window.location.hash) {
         var jsonHash = hashToJson(window.location.hash);
         if (jsonHash.song && musicInfo[jsonHash.song]) {
             player.nowSong = jsonHash.song;
         } else {
             player.nowSong = 0;
-
         }
     }
 };
 
-player.processCur = function() {
+player.processCur = function () {
     if (this.curDraging) {
         return;
     }
@@ -411,7 +401,6 @@ player.processCur = function() {
     }
 };
 
-
 audiOne.ontimeupdate = player.getBuffered;
 player.perSecArrFn.push(player.getCurTime);
 player.perSecArrFn.push(player.processCur);
@@ -420,15 +409,13 @@ player.getHash();
 player.playerlist();
 player.init();
 
-
-
 //------------按钮-----------
 
 //上一首
-aCtrls[0].onmousedown = function() {
+aCtrls[0].onmousedown = function () {
     player.preloadImg();
 };
-aCtrls[0].onclick = function() {
+aCtrls[0].onclick = function () {
     if (audiOne.readyState == 0) {
         return;
     }
@@ -438,8 +425,7 @@ aCtrls[0].onclick = function() {
             if (random < 0) {
                 random = 0;
             }
-        }
-        while (random == player.nowSong);
+        } while (random == player.nowSong);
         oPlayListLi[player.nowSong].className = "";
         player.nowSong = random;
         oPlayListLi[player.nowSong].className = "active";
@@ -462,11 +448,10 @@ aCtrls[0].onclick = function() {
         player.play();
     }
     lyReset();
-
 };
 
 //播放按钮
-aCtrls[1].onclick = function() {
+aCtrls[1].onclick = function () {
     if (audiOne.readyState == 0) {
         return;
     }
@@ -481,7 +466,7 @@ aCtrls[1].onclick = function() {
 };
 
 //暂停按钮
-aCtrls[2].onclick = function() {
+aCtrls[2].onclick = function () {
     clearInterval(player.CurTimer);
     player.pause();
     player.playing = false;
@@ -490,12 +475,11 @@ aCtrls[2].onclick = function() {
     clearInterval(player.perSecTimer);
 };
 
-
 //下一首
-aCtrls[3].onmousedown = function() {
+aCtrls[3].onmousedown = function () {
     player.preloadImg();
 };
-aCtrls[3].onclick = function() {
+aCtrls[3].onclick = function () {
     if (audiOne.readyState == 0) {
         return;
     }
@@ -505,8 +489,7 @@ aCtrls[3].onclick = function() {
             if (random < 0) {
                 random = 0;
             }
-        }
-        while (random == player.nowSong);
+        } while (random == player.nowSong);
         oPlayListLi[player.nowSong].className = "";
         player.nowSong = random;
         oPlayListLi[player.nowSong].className = "active";
@@ -528,21 +511,21 @@ aCtrls[3].onclick = function() {
     }
     lyReset();
 };
-musicList.onclick=function () {
-            var l=parseInt(getComputedStyle(document.body)['width']);
-            var WrapperMin=l*0.7;
-            var RightMax=l*0.3;
-            if(flag){
-                doMove(rightWrapper,{"width":0},200,'linear');
-                doMove(Wrapper,{"width":l},200,'linear');
-                flag=false;
-            }else{
-                doMove(rightWrapper,{"width":RightMax},200,'linear');
-                doMove(Wrapper,{"width":WrapperMin},200,'linear');
-                flag=true;
-            }
-}
-oProcessBar.onclick = function(ev) {
+musicList.onclick = function () {
+    var l = parseInt(getComputedStyle(document.body)['width']);
+    var WrapperMin = l * 0.7;
+    var RightMax = l * 0.3;
+    if (flag) {
+        doMove(rightWrapper, { "width": 0 }, 200, 'linear');
+        doMove(Wrapper, { "width": l }, 200, 'linear');
+        flag = false;
+    } else {
+        doMove(rightWrapper, { "width": RightMax }, 200, 'linear');
+        doMove(Wrapper, { "width": WrapperMin }, 200, 'linear');
+        flag = true;
+    }
+};
+oProcessBar.onclick = function (ev) {
     ev = ev || window.event;
     var L1 = this.getBoundingClientRect().left;
     var dis = ev.clientX - L1;
@@ -552,18 +535,18 @@ oProcessBar.onclick = function(ev) {
 
     var btnTime = dis / 240 * player.duration;
     oCurrentTime.innerHTML = SecToMin(btnTime);
-    audiOne.currentTime = (btnTime + 0.001);
+    audiOne.currentTime = btnTime + 0.001;
     lyMoveTo(btnTime);
     oCurBtn.style.left = dis + 'px';
     oProcessCur.style.width = dis / 240 * 100 + '%';
 };
 
 //进度按钮拖拽
-oCurBtn.onclick = function(ev) {
+oCurBtn.onclick = function (ev) {
     ev = ev || window.event;
     ev.stopPropagation();
 };
-oCurBtn.onmousedown = function(ev) {
+oCurBtn.onmousedown = function (ev) {
     ev = ev || window.event;
     //offsetLeft从-10开始
     var L1 = oCurBtn.offsetLeft + 10;
@@ -571,7 +554,7 @@ oCurBtn.onmousedown = function(ev) {
     var tar = 0;
     var btnTime = audiOne.currentTime;
     player.curDraging = true;
-    document.onmousemove = function(ev) {
+    document.onmousemove = function (ev) {
         ev = ev || window.event;
         var disX = ev.clientX - ML1;
         tar = L1 + disX;
@@ -583,32 +566,31 @@ oCurBtn.onmousedown = function(ev) {
         oCurrentTime.innerHTML = SecToMin(btnTime);
         lyMoveTo(btnTime + 0.001);
     };
-    document.onmouseup = function() {
+    document.onmouseup = function () {
         player.curDraging = false;
-        audiOne.currentTime = (btnTime + 0.001);
+        audiOne.currentTime = btnTime + 0.001;
         document.onmousemove = document.onmouseup = null;
     };
-
 };
 
 oLyric.onOff = true;
-oLyric.onclick = function() {
+oLyric.onclick = function () {
     if (oLyric.onOff) {
         oLyric.style.display = 'none';
         oCenter.style.opacity = '1';
     }
 };
-oCenter.onclick = function() {
+oCenter.onclick = function () {
     oLyric.style.display = 'block';
     oCenter.style.opacity = '0.001';
 };
-oLyric.onmousedown = function(ev) {
+oLyric.onmousedown = function (ev) {
     ev = ev || window.event;
     oLyric.onOff = true;
     var T1 = ev.clientY;
     var ulTop1 = lyricUl.offsetTop;
     var finalTar = lyricUl.offsetTop;
-    document.onmousemove = function(ev) {
+    document.onmousemove = function (ev) {
         ev = ev || window.event;
         if (Math.abs(ev.clientY - T1) < 4) {
             return;
@@ -620,8 +602,8 @@ oLyric.onmousedown = function(ev) {
         if (target > lyric.lyricTop) {
             target = lyric.lyricTop;
         }
-        if (target < (-lyricUl.offsetHeight + lyric.lyricTop + lyric.unitHeight)) {
-            target = (-lyricUl.offsetHeight + lyric.lyricTop + lyric.unitHeight);
+        if (target < -lyricUl.offsetHeight + lyric.lyricTop + lyric.unitHeight) {
+            target = -lyricUl.offsetHeight + lyric.lyricTop + lyric.unitHeight;
         }
         lyricUl.style.top = target + "px";
         var numTar = Math.round((target - lyric.lyricTop) / lyric.unitHeight);
@@ -636,11 +618,11 @@ oLyric.onmousedown = function(ev) {
         lyricLi[lyric.lyNum].style.color = lyric.color;
         lyric.lyPreNum = lyric.lyNum;
     };
-    document.onmouseup = function() {
+    document.onmouseup = function () {
         if (lyric.draging) {
             lyric.draging = false;
             olyricLine.style.display = "none";
-            audiOne.currentTime = (lyric.lyMTime[lyric.lyNum] + 0.001);
+            audiOne.currentTime = lyric.lyMTime[lyric.lyNum] + 0.001;
             oCurrentTime.innerHTML = SecToMin(lyric.lyMTime[lyric.lyNum]);
             oCurBtn.style.left = lyric.lyMTime[lyric.lyNum] / player.duration * 240 + 'px';
             oProcessCur.style.width = lyric.lyMTime[lyric.lyNum] / player.duration * 100 + '%';
@@ -649,21 +631,18 @@ oLyric.onmousedown = function(ev) {
         document.onmousemove = null;
         document.onmouseup = null;
     };
-
 };
 
-window.onresize=function () {
-            var l=parseInt(getComputedStyle(document.body)['width']);
-            var wL=parseInt(getComputedStyle(Wrapper)['width']);
-            if(l-wL<=5){
-                Wrapper.style.width='100%';
-            }else{
-                Wrapper.style.width='70%';
-                rightWrapper.style.width='30%';
-            }
-        }
-
-
+window.onresize = function () {
+    var l = parseInt(getComputedStyle(document.body)['width']);
+    var wL = parseInt(getComputedStyle(Wrapper)['width']);
+    if (l - wL <= 5) {
+        Wrapper.style.width = '100%';
+    } else {
+        Wrapper.style.width = '70%';
+        rightWrapper.style.width = '30%';
+    }
+};
 
 //--------歌词相关--------
 function loadLyric(name) {
@@ -691,11 +670,10 @@ function lyReset() {
     }
 }
 
-
 function lyMoveTo(time) {
     var last = true;
     for (var i = 0; i < lyric.lyMTime.length; i++) {
-        if (lyric.lyMTime[i] > (time - lyric.offset)) {
+        if (lyric.lyMTime[i] > time - lyric.offset) {
             lyric.lyNum = i - 1;
             last = false;
             break; //显示第i个
@@ -723,16 +701,14 @@ function lyMoveTo(time) {
         lyric.lyPreNum = lyric.lyNum;
     }
 
-
     lyricLi[lyric.lyNum].className = "active";
     lyricLi[lyric.lyNum].style.color = lyric.color;
     doMove(lyricUl, { top: lyric.lyricTop - lyric.unitHeight * lyric.lyNum }, 150, 'linear');
 }
 
-
 function lyricTimer() {
     clearInterval(lyric.timer);
-    lyric.timer = setInterval(function() {
+    lyric.timer = setInterval(function () {
         if (lyric.draging) {
             return;
         }
@@ -748,6 +724,5 @@ function lyricTimer() {
         }
 
         lyMoveTo(audiOne.currentTime);
-
     }, 150);
 }
