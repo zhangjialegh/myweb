@@ -7,20 +7,20 @@ var swiper = new Swiper('.swiper-container', {
     hashnavWatchState: true,
     roundLengths: true,
     // noSwiping: true,
-    onInit() {
+    onInit:function() {
         star();
         swiCard();
         window.onresize();
         skewDeg();
         replacePath();
     },
-    onSlideNextStart(s) {
+    onSlideNextStart:function(s) {
         var snapIndex = s.snapIndex;
         var previousIndex = s.previousIndex;
         if (previousIndex === 1) previousIndex = 7;
         slideNext(snapIndex,previousIndex);
     },
-    onSlidePrevStart(s) {
+    onSlidePrevStart:function(s) {
         var snapIndex = s.snapIndex;
         var previousIndex = s.previousIndex;
         if (snapIndex === 0) snapIndex = 6;
@@ -160,13 +160,13 @@ function slideNext(snapIndex,previousIndex) {
 
           $('.weather .desc').animate({
               height: 0,
-          }, 200, () => {
-              $(this).css('transform', 'translateY(88px)');
+          }, 200, function () {
+                $('.weather .desc').css('transform', 'translateY(88px)');
           });
           $('.weather .title').animate({
               height: 0,
-          }, 200, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 200, function () {
+               $('.weather .title').css('transform', 'translateY(38px)');
           })
           $('.weather-board').css({
               left: '50%',
@@ -184,13 +184,13 @@ function slideNext(snapIndex,previousIndex) {
 
           $('.cloud .desc').animate({
               height: 0,
-          }, 200, () => {
-              $(this).css('transform', 'translateY(88px)');
+          }, 200, function () {
+              $('.cloud .desc').css('transform', 'translateY(88px)');
           });
           $('.cloud .title').animate({
               height: 0,
-          }, 200, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 200, function () {
+              $('.cloud .title').css('transform', 'translateY(38px)');
               $('.c-board').animate({
                   left: '100%'
               }, 300)
@@ -224,13 +224,13 @@ function slideNext(snapIndex,previousIndex) {
           $('.nature .arrow').removeClass('move-arrow');
           $('.nature .desc').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(88px)');
+          }, 100, function () {
+              $('.nature .desc').css('transform', 'translateY(88px)');
           });
           $('.nature .title').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 100, function () {
+              $('.nature .title').css('transform', 'translateY(38px)');
               $('.n-board').animate({
                   bottom: '-230px'
               }, 100, function () {
@@ -250,13 +250,13 @@ function slideNext(snapIndex,previousIndex) {
 
           $('.mobile .desc').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(88px)');
+          }, 100, function () {
+              $('.mobile .desc').css('transform', 'translateY(88px)');
           });
           $('.mobile .title').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 100, function () {
+              $('.mobile .title').css('transform', 'translateY(38px)');
               $('.mobile .bg').css({
               'width':'15%',
               'height':'50%',
@@ -406,13 +406,13 @@ function slidePrev(snapIndex,previousIndex) {
 
           $('.mobile .desc').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(88px)');
+          }, 100, function () {
+              $('.mobile .desc').css('transform', 'translateY(88px)');
           });
           $('.mobile .title').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 100, function () {
+               $('.mobile .title').css('transform', 'translateY(38px)');
 
                $('.mobile .bg').css({
               'width':'15%',
@@ -436,13 +436,13 @@ function slidePrev(snapIndex,previousIndex) {
           $('.weather .arrow').removeClass('move-arrow');
           $('.weather .desc').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(88px)')
+          }, 100, function () {
+              $('.weather .desc').css('transform', 'translateY(88px)')
           });
           $('.weather .title').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 100, function () {
+              $('.weather .title').css('transform', 'translateY(38px)');
               $('.weather-board').animate({
                   width: 0,
               }, 300);
@@ -453,13 +453,13 @@ function slidePrev(snapIndex,previousIndex) {
           $('.cloud .arrow').removeClass('move-arrow');
           $('.cloud .desc').animate({
               height: 0,
-          }, 200, () => {
-              $(this).css('transform', 'translateY(88px)')
+          }, 200,function () {
+              $('.cloud .desc').css('transform', 'translateY(88px)')
           });
           $('.cloud .title').animate({
               height: 0,
-          }, 200, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 200, function () {
+              $('.cloud .title').css('transform', 'translateY(38px)');
               $('.c-board').animate({
                   left: '-20%'
               }, 300)
@@ -471,13 +471,13 @@ function slidePrev(snapIndex,previousIndex) {
 
           $('.music .desc').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(88px)');
+          }, 100, function () {
+              $('.music .desc').css('transform', 'translateY(88px)');
           });
           $('.music .title').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 100, function () {
+              $('.music .title').css('transform', 'translateY(38px)');
               $('.m-boardT').css('left','-50%');
                $('.m-boardB').css('left','50%');
           })
@@ -487,13 +487,13 @@ function slidePrev(snapIndex,previousIndex) {
           $('.nature .arrow').removeClass('move-arrow');
           $('.nature .desc').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(88px)');
+          }, 100, function () {
+              $('.nature .desc').css('transform', 'translateY(88px)');
           });
           $('.nature .title').animate({
               height: 0,
-          }, 100, () => {
-              $(this).css('transform', 'translateY(38px)');
+          }, 100, function () {
+              $('.nature .title').css('transform', 'translateY(38px)');
               $('.n-board').animate({
                   bottom: '-230px'
               }, 100, function () {
